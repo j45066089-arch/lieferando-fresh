@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DEFAULT</key>
+	<dict>
+		<key>lat</key><real>52.52</real>
+		<key>lon</key><real>13.405</real>
+		<key>ssid</key><string>FRITZ!Box 7590 AX</string>
+		<key>bssid</key><string>3C:A6:2F:11:22:33</string>
+		<key>idfa</key><string>AAAAAAAA-BBBB-CCCC-DDDD-EEEEEEEEEEEE</string>
+	</dict>
+	<key>89D812CA-0D99-4B28-B240-7D7E5D8B0BF8</key>
+	<dict>
+		<key>lat</key><real>53.5511</real>
+		<key>lon</key><real>9.9937</real>
+		<key>ssid</key><string>Vodafone-5G-Home</string>
+		<key>bssid</key><string>F8:32:E4:AA:BB:CC</string>
+		<key>idfa</key><string>11111111-2222-3333-4444-555555555555</string>
+	</dict>
+</dict>
+</plist>
