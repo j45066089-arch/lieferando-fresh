@@ -2,21 +2,57 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>DEFAULT</key>
-	<dict>
-		<key>lat</key><real>52.52</real>
-		<key>lon</key><real>13.405</real>
-		<key>ssid</key><string>FRITZ!Box 7590 AX</string>
-		<key>bssid</key><string>3C:A6:2F:11:22:33</string>
-		<key>idfa</key><string>AAAAAAAA-BBBB-CCCC-DDDD-EEEEEEEEEEEE</string>
-	</dict>
 	<key>89D812CA-0D99-4B28-B240-7D7E5D8B0BF8</key>
 	<dict>
-		<key>lat</key><real>53.5511</real>
-		<key>lon</key><real>9.9937</real>
-		<key>ssid</key><string>Vodafone-5G-Home</string>
-		<key>bssid</key><string>F8:32:E4:AA:BB:CC</string>
-		<key>idfa</key><string>11111111-2222-3333-4444-555555555555</string>
+		<key>bssid</key>
+		<string>F8:32:E4:AA:BB:CC</string>
+		<key>idfa</key>
+		<string>11111111-2222-3333-4444-555555555555</string>
+		<key>lat</key>
+		<real>53.5511</real>
+		<key>lon</key>
+		<real>9.9937</real>
+		<key>ssid</key>
+		<string>Vodafone-5G-Home</string>
+	</dict>
+	<key>A9911979-BB68-4806-B58A-96927C0988CB</key>
+	<dict>
+		<key>bssid</key>
+		<string>00:1E:2B:33:44:55</string>
+		<key>idfa</key>
+		<string>744C1F6C-0ACB-4019-822F-3C2209F7666D</string>
+		<key>lat</key>
+		<real>48.1351</real>
+		<key>lon</key>
+		<real>11.582</real>
+		<key>ssid</key>
+		<string>o2-WLAN89</string>
+	</dict>
+	<key>C8801B9F-679D-4F2C-AEBF-1CA3C1903BD7</key>
+	<dict>
+		<key>bssid</key>
+		<string>C8:0E:14:55:66:77</string>
+		<key>idfa</key>
+		<string>95458F85-B7CA-4DBF-A932-DA46CAB3F065</string>
+		<key>lat</key>
+		<real>50.9375</real>
+		<key>lon</key>
+		<real>6.9603</real>
+		<key>ssid</key>
+		<string>Telekom-5G-Home</string>
+	</dict>
+	<key>DEFAULT</key>
+	<dict>
+		<key>bssid</key>
+		<string>3C:A6:2F:11:22:33</string>
+		<key>idfa</key>
+		<string>AAAAAAAA-BBBB-CCCC-DDDD-EEEEEEEEEEEE</string>
+		<key>lat</key>
+		<real>52.52</real>
+		<key>lon</key>
+		<real>13.405</real>
+		<key>ssid</key>
+		<string>FRITZ!Box 7590 AX</string>
 	</dict>
 </dict>
 </plist>

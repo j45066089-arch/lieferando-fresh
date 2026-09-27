@@ -1,8 +1,8 @@
 Package: com.shosh.lieferandofresh
 Name: LieferandoFresh
-Version: 1.0.0
+Version: 1.1.0
 Architecture: iphoneos-arm64
-Description: Per-Crane-Container Fingerprint-Spoof for Lieferando (Location/Wifi/IDFA)
+Description: Per-Crane-Container Fingerprint-Spoof for Lieferando (Location/Wifi/IDFA, Auto-Profil)
 Maintainer: shosh
 Author: shosh
 Section: Tweaks
