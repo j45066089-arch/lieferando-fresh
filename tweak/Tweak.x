@@ -95,10 +95,12 @@ static CFDictionaryRef fakeCN(CFStringRef interfaceName) {
         if (idfa.length) gIDFA = [[NSUUID alloc] initWithUUIDString:idfa];
     }
     // Heartbeat: beweist Injection + zeigt geladenen Container/Profil
-    NSString *msg = [NSString stringWithFormat:@"v1.1.1 injected; home=%@; active=%@; lat=%@ lon=%@ ssid=%@ idfa=%@\n",
-        NSHomeDirectory(), gActive ?: @"(nil)",
-        gProfile[@"lat"] ?: @"-", gProfile[@"lon"] ?: @"-",
-        gProfile[@"ssid"] ?: @"-", gProfile[@"idfa"] ?: @"-"];
+    NSString *act = gActive ? gActive : @"(nil)";
+    NSString *plat = gProfile[@"lat"] ? [gProfile[@"lat"] description] : @"-";
+    NSString *plon = gProfile[@"lon"] ? [gProfile[@"lon"] description] : @"-";
+    NSString *pssid = gProfile[@"ssid"] ? gProfile[@"ssid"] : @"-";
+    NSString *pidfa = gProfile[@"idfa"] ? gProfile[@"idfa"] : @"-";
+    NSString *msg = [NSString stringWithFormat:@"v1.1.1 injected; home=%@\nactive=%@\nlat=%@ lon=%@\nssid=%@\nidfa=%@\n", NSHomeDirectory(), act, plat, plon, pssid, pidfa];
     NSString *hb1 = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/LieferandoFresh_heartbeat.txt"];
     [msg writeToFile:hb1 atomically:YES encoding:NSUTF8StringEncoding error:nil];
     [msg writeToFile:@"/var/mobile/Documents/LieferandoFresh/heartbeat.txt" atomically:YES encoding:NSUTF8StringEncoding error:nil];
