@@ -68,10 +68,22 @@ static CFDictionaryRef fakeCN(CFStringRef interfaceName) {
     if (gProfile) return gCoord;
     return %orig;
 }
-- (CLLocationDistance)horizontalAccuracy { if (gProfile) return 5.0; return %orig; }
-- (CLLocationDistance)verticalAccuracy { if (gProfile) return 5.0; return %orig; }
-- (CLLocationDistance)altitude { if (gProfile) return 35.0; return %orig; }
-- (CLLocationSpeed)speed { if (gProfile) return 0.0; return %orig; }
+- (CLLocationDistance)horizontalAccuracy {
+    if (gProfile) return 5.0;
+    return %orig;
+}
+- (CLLocationDistance)verticalAccuracy {
+    if (gProfile) return 5.0;
+    return %orig;
+}
+- (CLLocationDistance)altitude {
+    if (gProfile) return 35.0;
+    return %orig;
+}
+- (CLLocationSpeed)speed {
+    if (gProfile) return 0.0;
+    return %orig;
+}
 %end
 
 %hook ASIdentifierManager
@@ -79,7 +91,9 @@ static CFDictionaryRef fakeCN(CFStringRef interfaceName) {
     if (gIDFA) return gIDFA;
     return %orig;
 }
-- (BOOL)isAdvertisingTrackingEnabled { return YES; }
+- (BOOL)isAdvertisingTrackingEnabled {
+    return YES;
+}
 %end
 
 %ctor {
