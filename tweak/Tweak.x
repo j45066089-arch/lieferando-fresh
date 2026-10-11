@@ -8,7 +8,6 @@
 static NSDictionary *gProfile = nil;
 static CLLocationCoordinate2D gCoord = {0, 0};
 static NSUUID *gIDFA = nil;
-static NSString *gActive = nil;
 
 static CFDictionaryRef (*origCNCopyCurrentNetworkInfo)(CFStringRef interfaceName);
 
@@ -43,7 +42,6 @@ static NSDictionary *loadProfile(void) {
     if (!all) all = [NSDictionary dictionary];
     NSDictionary *crane = [NSDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/com.opa334.craneprefs.plist"];
     NSString *active = crane[@"appSettings_com.yourdelivery.lieferando"][@"activeContainer"];
-    gActive = [active copy];
     NSDictionary *p = all[active];
     if (p) return p;
     // Auto-Profil: jede unbekannte Container-UUID bekommt deterministisch eigene Werte
@@ -94,18 +92,11 @@ static CFDictionaryRef fakeCN(CFStringRef interfaceName) {
         NSString *idfa = gProfile[@"idfa"];
         if (idfa.length) gIDFA = [[NSUUID alloc] initWithUUIDString:idfa];
     }
-    // Heartbeat: beweist Injection + zeigt geladenen Container/Profil
-    NSString *act = gActive ? gActive : @"(nil)";
-    NSString *plat = gProfile[@"lat"] ? [gProfile[@"lat"] description] : @"-";
-    NSString *plon = gProfile[@"lon"] ? [gProfile[@"lon"] description] : @"-";
-    NSString *pssid = gProfile[@"ssid"] ? gProfile[@"ssid"] : @"-";
-    NSString *pidfa = gProfile[@"idfa"] ? gProfile[@"idfa"] : @"-";
-    NSString *msg = [NSString stringWithFormat:@"v1.1.1 injected; home=%@\nactive=%@\nlat=%@ lon=%@\nssid=%@\nidfa=%@\n", NSHomeDirectory(), act, plat, plon, pssid, pidfa];
-    NSString *hb1 = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/LieferandoFresh_heartbeat.txt"];
-    [msg writeToFile:hb1 atomically:YES encoding:NSUTF8StringEncoding error:nil];
-    [msg writeToFile:@"/var/mobile/Documents/LieferandoFresh/heartbeat.txt" atomically:YES encoding:NSUTF8StringEncoding error:nil];
     void *sym = MSFindSymbol(NULL, "_CNCopyCurrentNetworkInfo");
     if (sym) {
         MSHookFunction(sym, (void *)fakeCN, (void **)&origCNCopyCurrentNetworkInfo);
     }
+    // Heartbeat v1.1.1: beweist Injection
+    FILE *f = fopen("/var/mobile/Documents/LieferandoFresh_heartbeat.txt", "w");
+    if (f) { fprintf(f, "injected home=%s\n", NSHomeDirectory().UTF8String); fclose(f); }
 }
